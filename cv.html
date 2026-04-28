@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="CV of Sasikala J — QA Automation Engineer and IT Test Consultant based in the UK."/>
+  <title>CV — Sasikala J</title>
+
+  <!--
+    PERFORMANCE NOTES
+    ─────────────────
+    · Single HTTP request for fonts (display=swap avoids FOIT)
+    · No external JS, no framework, no runtime dependencies
+    · All CSS inlined — zero render-blocking stylesheets beyond the one Google Fonts call
+    · Images removed; logos replaced with pure-CSS badges (instant paint)
+    · Semantic HTML → accessible + good Lighthouse scores out of the box
+    · print stylesheet included so the page prints cleanly as a CV
+  -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&display=swap" rel="stylesheet"/>
+
+  <style>
+    /* ── TOKENS ── */
+    :root {
+      --navy:   #1a1f3a;
+      --orange: #D4622A;
+      --muted:  #6b7280;
+      --border: #e5e7eb;
+      --bg:     #ffffff;
+      --bg2:    #f9f8f6;
+      --text:   #374151;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Source Serif 4', Georgia, serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 17px;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      border-bottom: 1px solid var(--border);
+      height: 64px;
+      position: sticky;
+      top: 0;
+      background: #fff;
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+    }
+    .nav-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--navy);
+      text-decoration: none;
+      letter-spacing: 0.3px;
+    }
+    .nav-name span { color: var(--orange); }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a {
+      font-family: 'Source Serif 4', serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--navy); }
+    .nav-links a.active { color: var(--navy); }
+
+    /* ── PAGE WRAPPER ── */
+    .page-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 64px 24px 96px;
+    }
+
+    /* ── PAGE META (eyebrow + title) ── */
+    .page-meta {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+    .meta-tag {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: var(--navy);
+      color: #fff;
+      padding: 4px 10px;
+      border-radius: 2px;
+    }
+    .meta-date {
+      font-size: 13px;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--navy);
+      margin-bottom: 24px;
+      letter-spacing: -0.5px;
+    }
+
+    /* ── LEAD (career statement) ── */
+    .lead {
+      font-size: 19px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--text);
+      border-left: 3px solid var(--orange);
+      padding-left: 20px;
+      margin-bottom: 48px;
+      font-style: italic;
+    }
+
+    /* ── SECTION HEADINGS ── */
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 52px 0 16px;
+      letter-spacing: -0.3px;
+    }
+
+    /* ── DIVIDERS ── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 48px 0;
+    }
+
+    /* ── CONCEPT ROWS (skills / experience items) ── */
+    .concept-list { display: flex; flex-direction: column; gap: 0; margin: 24px 0 36px; }
+    .concept {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 0;
+      border-bottom: 1px solid var(--border);
+      padding: 16px 0;
+    }
+    .concept:first-child { border-top: 1px solid var(--border); }
+    .concept-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: var(--navy);
+      padding-right: 24px;
+      padding-top: 3px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .concept-label::before {
+      content: '';
+      display: inline-block;
+      width: 6px; height: 6px;
+      background: var(--orange);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 5px;
+    }
+    .concept-body { font-size: 15px; color: var(--text); line-height: 1.65; }
+
+    /* ── TAG CLOUD (tools / skills badges) ── */
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 24px 0 36px;
+    }
+    .tag {
+      font-family: 'Source Serif 4', serif;
+      font-size: 11px;
+      letter-spacing: 1px;
+      color: var(--navy);
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      padding: 5px 12px;
+      border-radius: 2px;
+      white-space: nowrap;
+    }
+
+    /* ── CERT BADGES ── */
+    .certs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin: 24px 0 36px;
+    }
+    .cert {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      padding: 16px 20px;
+      flex: 1 1 220px;
+    }
+    .cert-icon {
+      width: 36px; height: 36px;
+      background: var(--navy);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .cert-icon svg { width: 18px; height: 18px; fill: #fff; }
+    .cert-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.3;
+    }
+    .cert-body { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+    /* ── BLOCKQUOTE / PULL ── */
+    blockquote {
+      background: var(--bg2);
+      border-left: 4px solid var(--orange);
+      border-radius: 0;
+      margin: 36px 0;
+      padding: 24px 28px;
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-style: italic;
+      color: var(--navy);
+      line-height: 1.5;
+    }
+
+    /* ── CTA STRIP ── */
+    .cta-strip {
+      background: var(--navy);
+      border-radius: 2px;
+      padding: 36px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin-top: 52px;
+      flex-wrap: wrap;
+    }
+    .cta-strip p {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-style: italic;
+      color: #fff;
+      line-height: 1.4;
+    }
+    .btn {
+      font-family: 'Source Serif 4', serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 12px 28px;
+      border-radius: 2px;
+      display: inline-block;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+    .btn-light {
+      background: #fff;
+      color: var(--navy);
+    }
+    .btn-light:hover { background: var(--bg2); }
+
+    /* ── CONTACT FOOTER ── */
+    .contact-bar {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      padding: 32px 0;
+      border-top: 1px solid var(--border);
+      margin-top: 48px;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .contact-item svg { width: 16px; height: 16px; fill: var(--orange); flex-shrink: 0; }
+    .contact-item a, .contact-item span {
+      font-size: 14px;
+      color: var(--navy);
+      text-decoration: none;
+    }
+    .contact-item a:hover { color: var(--orange); }
+
+    /* ── PAGE FOOTER ── */
+    footer {
+      background: #000;
+      padding: 28px 24px;
+      text-align: center;
+    }
+    footer p { font-size: 13px; color: var(--orange); }
+    footer a { color: var(--orange); text-decoration: none; }
+    footer a:hover { color: #fff; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .nav-inner { padding: 0 16px; }
+      .nav-links { gap: 18px; }
+      .page-wrap { padding: 40px 16px 72px; }
+      .concept { grid-template-columns: 1fr; gap: 6px; }
+      .concept-label { font-size: 11px; }
+      .cta-strip { padding: 28px 24px; }
+      .cta-strip p { font-size: 17px; }
+      h2 { margin-top: 40px; }
+    }
+
+    /* ── PRINT ── */
+    @media print {
+      nav, .cta-strip, .contact-bar, footer { display: none; }
+      body { font-size: 12px; }
+      .page-wrap { padding: 0; max-width: 100%; }
+      h1 { font-size: 28px; }
+      h2 { font-size: 16px; margin-top: 24px; }
+      .divider { margin: 20px 0; }
+      .tag { border: 0.5px solid #ccc; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <a class="nav-name" href="/index">Sasikala <span>J</span></a>
+      <div class="nav-links">
+        <a href="/index">Home</a>
+        <a href="/cv" class="active">CV</a>
+        <a href="/projects">Projects</a>
+        <a href="/blog">Blog</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="page-wrap">
+
+    <!-- PAGE HEADER -->
+    <div class="page-meta">
+      <span class="meta-tag">Curriculum Vitae</span>
+      <span class="meta-date">Updated 2026</span>
+    </div>
+
+    <h1>Sasikala J</h1>
+
+    <p class="lead">QA automation engineer with extensive experience in the development and testing of software applications across multiple domains — recognised as a successful tester and problem-solver with deep expertise in functional and automation testing within Agile, Scrum, and BDD environments.</p>
+
+    <hr class="divider"/>
+
+    <!-- TESTING EXPERIENCE -->
+    <h2>Testing Experience</h2>
+    <div class="concept-list">
+      <div class="concept">
+        <div class="concept-label">Test Automation</div>
+        <div class="concept-body">BDD test automation framework design, Agile methodologies, regression and smoke test suites, BDD scenarios with Gherkin and Cucumber.</div>
+      </div>
+      <div class="concept">
+        <div class="concept-label">Web &amp; API Testing</div>
+        <div class="concept-body">Web application testing, API testing, mobile testing on iOS and Android, functional and exploratory testing.</div>
+      </div>
+      <div class="concept">
+        <div class="concept-label">Non-Functional</div>
+        <div class="concept-body">Accessibility testing with Axe, visual regression with Percy, performance testing with K6, cross-browser testing via BrowserStack and LambdaTest.</div>
+      </div>
+      <div class="concept">
+        <div class="concept-label">Process &amp; Tooling</div>
+        <div class="concept-body">Jira and Scrum, integration testing, static testing, UAT co-ordination, test planning, test data and environment set-up, database testing.</div>
+      </div>
+      <div class="concept">
+        <div class="concept-label">Testing Approaches</div>
+        <div class="concept-body">White-box and black-box testing, continuous integration in Jenkins and GitLab, version control with Git, build automation with Maven.</div>
+      </div>
+    </div>
+
+    <hr class="divider"/>
+
+    <!-- AUTOMATION SKILLS -->
+    <h2>Automation Skills</h2>
+
+    <blockquote>Designing and implementing test automation frameworks from scratch — from e-commerce platforms to HRM systems — using BDD, Page Object Model, and data-driven patterns.</blockquote>
+
+    <div class="concept-list">
+      <div class="concept">
+        <div class="concept-label">Frameworks</div>
+        <div class="concept-body">Java · Selenium WebDriver · JUnit · Cypress · Playwright · Capybara · TestNG · Cucumber · Gherkin — designed and built from scratch.</div>
+      </div>
+      <div class="concept">
+        <div class="concept-label">CI / CD</div>
+        <div class="concept-body">Continuous integration testing in Jenkins and GitLab; build automation in Maven; version control in Git, GitHub and GitLab.</div>
+      </div>
+      <div class="concept">
+        <div class="concept-label">Non-functional</div>
+        <div class="concept-body">Accessibility automation using Axe; visual regression with Percy; performance and load testing with K6 and Gatling.</div>
+      </div>
+      <div class="concept">
+        <div class="concept-label">Cross-platform</div>
+        <div class="concept-body">Cross-browser and cross-platform testing with BrowserStack and LambdaTest; mobile testing on iOS and Android.</div>
+      </div>
+    </div>
+
+    <hr class="divider"/>
+
+    <!-- TOOLS & LANGUAGES -->
+    <h2>Tools &amp; Languages</h2>
+    <div class="tag-cloud" role="list" aria-label="Tools and languages">
+      <span class="tag" role="listitem">Java</span>
+      <span class="tag" role="listitem">JavaScript</span>
+      <span class="tag" role="listitem">TypeScript</span>
+      <span class="tag" role="listitem">Cypress</span>
+      <span class="tag" role="listitem">Playwright</span>
+      <span class="tag" role="listitem">Selenium WebDriver</span>
+      <span class="tag" role="listitem">Cucumber / Gherkin</span>
+      <span class="tag" role="listitem">Node.js</span>
+      <span class="tag" role="listitem">JUnit / TestNG</span>
+      <span class="tag" role="listitem">K6</span>
+      <span class="tag" role="listitem">Gatling</span>
+      <span class="tag" role="listitem">Axe</span>
+      <span class="tag" role="listitem">Percy</span>
+      <span class="tag" role="listitem">Postman</span>
+      <span class="tag" role="listitem">GraphQL</span>
+      <span class="tag" role="listitem">MAVEN</span>
+      <span class="tag" role="listitem">Jenkins</span>
+      <span class="tag" role="listitem">Git / GitHub / GitLab</span>
+      <span class="tag" role="listitem">Azure DevOps</span>
+      <span class="tag" role="listitem">Azure Services</span>
+      <span class="tag" role="listitem">AWS Athena / DynamoDB</span>
+      <span class="tag" role="listitem">AWS CloudWatch</span>
+      <span class="tag" role="listitem">HTML5 / CSS / XML</span>
+      <span class="tag" role="listitem">SQL / DB2</span>
+      <span class="tag" role="listitem">Unix / Shell Scripting</span>
+      <span class="tag" role="listitem">JIRA</span>
+      <span class="tag" role="listitem">BrowserStack</span>
+      <span class="tag" role="listitem">LambdaTest</span>
+      <span class="tag" role="listitem">MS Excel Macros</span>
+      <span class="tag" role="listitem">COBOL / z/OS</span>
+    </div>
+
+    <hr class="divider"/>
+
+    <!-- CORE SKILLS -->
+    <h2>Core Skills</h2>
+    <div class="tag-cloud" role="list" aria-label="Core skills">
+      <span class="tag" role="listitem">Manual testing</span>
+      <span class="tag" role="listitem">Automation testing</span>
+      <span class="tag" role="listitem">API testing</span>
+      <span class="tag" role="listitem">Agile</span>
+      <span class="tag" role="listitem">Software development</span>
+      <span class="tag" role="listitem">BDD</span>
+      <span class="tag" role="listitem">Scrum &amp; Kanban</span>
+      <span class="tag" role="listitem">Defect management</span>
+      <span class="tag" role="listitem">SIT and UAT</span>
+      <span class="tag" role="listitem">Retail</span>
+      <span class="tag" role="listitem">E-Commerce</span>
+      <span class="tag" role="listitem">Real estate</span>
+      <span class="tag" role="listitem">Financial services</span>
+      <span class="tag" role="listitem">Requirements analysis</span>
+    </div>
+
+    <hr class="divider"/>
+
+    <!-- EDUCATION & CERTIFICATIONS -->
+    <h2>Education &amp; Certifications</h2>
+    <div class="certs">
+      <div class="cert">
+        <div class="cert-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
+        </div>
+        <div>
+          <div class="cert-name">Bachelor of Engineering</div>
+          <div class="cert-body">Undergraduate degree</div>
+        </div>
+      </div>
+      <div class="cert">
+        <div class="cert-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+        </div>
+        <div>
+          <div class="cert-name">ISTQB Certified Test Analyst</div>
+          <div class="cert-body">International Software Testing Qualifications Board</div>
+        </div>
+      </div>
+      <div class="cert">
+        <div class="cert-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
+        </div>
+        <div>
+          <div class="cert-name">Oracle Certified Java Associate</div>
+          <div class="cert-body">Oracle Java SE Programmer</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-strip" role="complementary" aria-label="Contact call to action">
+      <p>For my complete CV or to discuss possible work →</p>
+      <a href="mailto:sasikalaj45@gmail.com" class="btn btn-light">Let's Talk</a>
+    </div>
+
+    <!-- CONTACT BAR -->
+    <div class="contact-bar" aria-label="Contact details">
+      <div class="contact-item">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        <a href="tel:+4407923132484">+44 (0) 07923 132484</a>
+      </div>
+      <div class="contact-item">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        <a href="mailto:sasikalaj45@gmail.com">sasikalaj45@gmail.com</a>
+      </div>
+      <div class="contact-item">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+        <a href="http://uk.linkedin.com/pub/sasikala-j/38/800/bb1" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p><a href="https://www.sasikalaj.co.uk">sasikalaj.co.uk</a> &nbsp;·&nbsp; © 2026 Sasikala J</p>
+  </footer>
+
+</body>
+</html>

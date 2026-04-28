@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sasikala J — IT Test Consultant</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --navy:   #1a1f3a;
+      --orange: #D4622A;
+      --muted:  #6b7280;
+      --border: #e5e7eb;
+      --bg:     #ffffff;
+      --bg2:    #f9f8f6;
+      --text:   #1a1f3a;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Source Serif 4', Georgia, serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 17px;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      border-bottom: 1px solid var(--border);
+      height: 64px;
+      position: sticky;
+      top: 0;
+      background: #fff;
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+    }
+    .nav-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--navy);
+      text-decoration: none;
+      letter-spacing: 0.3px;
+    }
+    .nav-name span { color: var(--orange); }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a {
+      font-family: 'Source Serif 4', serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--navy); }
+    .nav-links a.active { color: var(--navy); }
+
+    /* ── HERO ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      min-height: 520px;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 24px 80px;
+      gap: 64px;
+      align-items: center;
+    }
+    .hero-text {}
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 20px;
+      font-family: 'Source Serif 4', serif;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 5vw, 58px);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--navy);
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--orange);
+    }
+    .hero-role {
+      font-family: 'Source Serif 4', serif;
+      font-size: 13px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+    .hero-lead {
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: #374151;
+      border-left: 3px solid var(--orange);
+      padding-left: 20px;
+      margin-bottom: 40px;
+      font-style: italic;
+      max-width: 560px;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      font-family: 'Source Serif 4', serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 12px 28px;
+      border-radius: 2px;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+    .btn-primary {
+      background: var(--navy);
+      color: #fff;
+    }
+    .btn-primary:hover { background: #2d3461; }
+    .btn-outline {
+      border: 1px solid var(--navy);
+      color: var(--navy);
+      background: transparent;
+    }
+    .btn-outline:hover { background: var(--bg2); }
+
+    .hero-image-wrap {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    .hero-photo {
+      width: 340px;
+      height: 420px;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      border-radius: 2px;
+    }
+    .hero-photo-placeholder {
+      width: 340px;
+      height: 420px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-photo-placeholder svg {
+      width: 80px;
+      height: 80px;
+      opacity: 0.25;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    /* ── SKILLS STRIP ── */
+    .skills-strip {
+      background: var(--bg2);
+      padding: 48px 24px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .skills-strip-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .skills-strip-label {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 32px;
+      text-align: center;
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0;
+    }
+    .skill-item {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 0;
+      border-bottom: 1px solid var(--border);
+      padding: 18px 0;
+    }
+    .skill-item:first-child { border-top: 1px solid var(--border); }
+    .skill-name {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: var(--navy);
+      padding-right: 24px;
+      padding-top: 2px;
+    }
+    .skill-name span {
+      display: inline-block;
+      width: 6px; height: 6px;
+      background: var(--orange);
+      border-radius: 50%;
+      margin-right: 8px;
+      vertical-align: middle;
+      position: relative;
+      top: -1px;
+    }
+    .skill-desc { font-size: 15px; color: #374151; line-height: 1.65; }
+
+    /* ── ABOUT SECTION ── */
+    .about {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .about h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -0.3px;
+      margin-bottom: 24px;
+      line-height: 1.25;
+    }
+    .about p {
+      font-size: 16px;
+      color: #374151;
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+    .about-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 20px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+    }
+    .contact-icon {
+      width: 32px;
+      height: 32px;
+      background: var(--navy);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-icon svg { width: 14px; height: 14px; fill: #fff; }
+    .contact-label {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .contact-value {
+      font-size: 15px;
+      color: var(--navy);
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .contact-value:hover { color: var(--orange); }
+
+    /* ── BLOG PREVIEW ── */
+    .blog-section {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 80px 0;
+    }
+    .blog-section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 48px;
+    }
+    .section-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -0.3px;
+    }
+    .section-header a {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--orange);
+      text-decoration: none;
+    }
+    .section-header a:hover { color: var(--navy); }
+    .blog-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      padding: 40px;
+    }
+    .blog-meta {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+    .blog-tag {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: var(--navy);
+      color: #fff;
+      padding: 4px 10px;
+      border-radius: 2px;
+    }
+    .blog-date {
+      font-size: 13px;
+      color: var(--muted);
+      font-style: italic;
+    }
+    .blog-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(20px, 2.5vw, 28px);
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.25;
+      margin-bottom: 16px;
+      letter-spacing: -0.3px;
+    }
+    .blog-card p {
+      font-size: 16px;
+      color: #374151;
+      line-height: 1.75;
+      font-style: italic;
+      border-left: 3px solid var(--orange);
+      padding-left: 18px;
+      margin-bottom: 28px;
+    }
+    .blog-built-with {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.5px;
+      font-style: italic;
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+    }
+    .blog-built-with strong { color: var(--navy); font-style: normal; }
+
+    footer {
+      padding: 32px 48px;
+      text-align: center;
+      background: #000;
+    }
+    footer p {
+      font-size: 13px;
+      color: var(--orange);
+    }
+    footer a {
+      color: var(--orange);
+      text-decoration: none;
+    }
+    footer a:hover { color: #fff; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav-inner { padding: 0 20px; }
+      .nav-links { gap: 20px; }
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 48px 20px;
+        gap: 40px;
+      }
+      .hero-image-wrap { justify-content: center; }
+      .hero-photo, .hero-photo-placeholder { width: 100%; max-width: 340px; }
+      .about {
+        grid-template-columns: 1fr;
+        padding: 48px 20px;
+        gap: 48px;
+      }
+      .skills-grid { grid-template-columns: 1fr; }
+      .skill-item { grid-template-columns: 1fr; gap: 8px; }
+      footer { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-name" href="/index">Sasikala <span>J</span></a>
+      <div class="nav-links">
+        <a href="/index" class="active">Home</a>
+        <a href="/cv">CV</a>
+        <a href="/projects">Projects</a>
+        <a href="/blog">Blog</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <p class="hero-eyebrow">IT Test Consultant</p>
+      <h1>Hello,<br>I'm <em>Sasikala J</em></h1>
+      <p class="hero-role">QA Engineer &amp; Test Automation Specialist</p>
+      <p class="hero-lead">A self-driven IT consultant with extensive experience in software development and testing. Passionate about testing of software applications and highly skilled in test automation technologies.</p>
+      <div class="hero-ctas">
+        <a href="/cv" class="btn btn-primary">View My CV</a>
+        <a href="/projects" class="btn btn-outline">My Projects</a>
+      </div>
+    </div>
+    <div class="hero-image-wrap">
+      <img
+        class="hero-photo"
+        src="Wix-profile-pic.png"
+        alt="Sasikala J"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+      />
+      <div class="hero-photo-placeholder" style="display:none;">
+        <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="40" cy="30" r="18" fill="#1a1f3a"/>
+          <ellipse cx="40" cy="70" rx="28" ry="18" fill="#1a1f3a"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <!-- SKILLS STRIP -->
+  <section class="skills-strip">
+    <div class="skills-strip-inner">
+      <p class="skills-strip-label">Core Skills</p>
+      <div style="max-width: 740px; margin: 0 auto;">
+        <div class="skill-item">
+          <div class="skill-name"><span></span>Test Automation</div>
+          <div class="skill-desc">Playwright, Selenium, Jest — building robust, maintainable automation frameworks from scratch.</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name"><span></span>Agentic AI</div>
+          <div class="skill-desc">Designing multi-agent pipelines with Claude, MCP, and Anthropic Agent SDK to shift quality left.</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name"><span></span>QA Strategy</div>
+          <div class="skill-desc">End-to-end test planning across unit, integration, and E2E layers with clear traceability to requirements.</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name"><span></span>CI/CD &amp; Tooling</div>
+          <div class="skill-desc">GitHub Actions, Jira, Atlassian Rovo — integrating quality gates into the development pipeline.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT + CONTACT -->
+  <section class="about">
+    <div>
+      <h2>A bit about me</h2>
+      <p>I'm an IT Test Consultant with a career built on understanding not just what to test, but <em>why</em>. My work sits at the intersection of quality engineering and modern software development — helping teams ship with confidence.</p>
+      <p>Over the past year I've been layering AI into my testing workflow: Playwright MCP for browser automation, agentic flows to orchestrate repetitive test cycles, and multi-agent pipelines that take a Jira ticket all the way to production-ready test files.</p>
+      <p>I care about clear specifications, thoughtful test coverage, and keeping engineers in control of the judgement calls while AI handles the structured, repeatable work.</p>
+      <div style="margin-top: 32px;">
+        <a href="/cv" class="btn btn-outline">My Full CV →</a>
+      </div>
+    </div>
+    <div class="about-contact">
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        </div>
+        <div>
+          <div class="contact-label">Call</div>
+          <a class="contact-value" href="tel:+4407923132484">+44 (0) 07923 132484</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        </div>
+        <div>
+          <div class="contact-label">Email</div>
+          <a class="contact-value" href="mailto:sasikalaj45@gmail.com">sasikalaj45@gmail.com</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+        </div>
+        <div>
+          <div class="contact-label">Follow me</div>
+          <a class="contact-value" href="http://uk.linkedin.com/pub/sasikala-j/38/800/bb1" target="_blank" rel="noopener">LinkedIn Profile</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <!-- BLOG PREVIEW -->
+  <section class="blog-section">
+    <div class="blog-section-inner">
+      <div class="section-header">
+        <h2>Latest Writing</h2>
+        <a href="/blog">All posts →</a>
+      </div>
+      <div class="blog-card">
+        <div class="blog-meta">
+          <span class="blog-tag">Agentic AI</span>
+          <span class="blog-date">April 2026</span>
+        </div>
+        <h3>From Jira Ticket to Test Code —<br>Building an Agentic Pipeline in Two Weeks</h3>
+        <p>AI has changed how we build, test, and ship software — and if you work in quality engineering, you've felt it. This is the story of two weeks, four certificates, and one system that ties it all together.</p>
+        <a href="/blog" class="btn btn-outline" style="margin-bottom: 28px;">Read the article →</a>
+        <div class="blog-built-with">
+          <strong>Built with</strong> &nbsp;Claude Code &nbsp;·&nbsp; Anthropic Agent SDK &nbsp;·&nbsp; Atlassian Rovo MCP &nbsp;·&nbsp; Playwright &nbsp;·&nbsp; Jest
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p><a href="https://www.sasikalaj.co.uk">sasikalaj.co.uk</a> &nbsp;·&nbsp; © 2026 Sasikala J</p>
+  </footer>
+
+</body>
+</html>

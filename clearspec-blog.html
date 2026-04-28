@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ClearSpec — Sasikala J</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --navy:   #1a1f3a;
+      --orange: #D4622A;
+      --muted:  #6b7280;
+      --border: #e5e7eb;
+      --bg:     #ffffff;
+      --bg2:    #f9f8f6;
+      --text:   #1a1f3a;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Source Serif 4', Georgia, serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 17px;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      border-bottom: 1px solid var(--border);
+      height: 64px;
+      position: sticky;
+      top: 0;
+      background: #fff;
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+    }
+    .nav-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--navy);
+      text-decoration: none;
+      letter-spacing: 0.3px;
+    }
+    .nav-name span { color: var(--orange); }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a {
+      font-family: 'Source Serif 4', serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--navy); }
+    .nav-links a.active { color: var(--navy); }
+
+    /* ── HERO BANNER IMAGE ── */
+    .hero-image {
+      width: 100%;
+      max-height: 340px;
+      object-fit: cover;
+      object-position: left center;
+      display: block;
+    }
+
+    /* ── ARTICLE WRAPPER ── */
+    .article-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 64px 24px 96px;
+    }
+
+    /* ── META ── */
+    .meta {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+    .meta-tag {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: var(--navy);
+      color: #fff;
+      padding: 4px 10px;
+      border-radius: 2px;
+    }
+    .meta-date {
+      font-size: 13px;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* ── TITLE ── */
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--navy);
+      margin-bottom: 24px;
+      letter-spacing: -0.5px;
+    }
+
+    /* ── LEAD ── */
+    .lead {
+      font-size: 19px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: #374151;
+      border-left: 3px solid var(--orange);
+      padding-left: 20px;
+      margin-bottom: 48px;
+      font-style: italic;
+    }
+
+    /* ── SECTION HEADINGS ── */
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 52px 0 16px;
+      letter-spacing: -0.3px;
+    }
+
+    /* ── BODY TEXT ── */
+    p { margin-bottom: 20px; color: #374151; }
+
+    /* ── HORIZONTAL RULE ── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 48px 0;
+    }
+
+    /* ── TABLE ── */
+    .table-wrap { overflow-x: auto; margin: 28px 0 36px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 15px;
+    }
+    thead tr {
+      background: var(--navy);
+      color: #fff;
+    }
+    th {
+      padding: 12px 16px;
+      text-align: left;
+      font-family: 'Source Serif 4', serif;
+      font-weight: 400;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      color: #374151;
+    }
+    tbody tr:nth-child(even) td { background: var(--bg2); }
+    td code, th code {
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 3px;
+      color: #1a1f3a;
+    }
+    strong { font-weight: 700; color: var(--navy); }
+
+    /* ── CONCEPT CARDS ── */
+    .concepts { display: flex; flex-direction: column; gap: 0; margin: 24px 0 36px; }
+    .concept {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 0;
+      border-bottom: 1px solid var(--border);
+      padding: 18px 0;
+    }
+    .concept:first-child { border-top: 1px solid var(--border); }
+    .concept-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: var(--navy);
+      padding-right: 24px;
+      padding-top: 2px;
+    }
+    .concept-label span {
+      display: inline-block;
+      width: 6px; height: 6px;
+      background: var(--orange);
+      border-radius: 50%;
+      margin-right: 8px;
+      vertical-align: middle;
+      position: relative;
+      top: -1px;
+    }
+    .concept-text { font-size: 15px; color: #374151; line-height: 1.65; }
+
+    /* ── PULL QUOTE ── */
+    blockquote {
+      border: none;
+      background: var(--bg2);
+      border-left: 4px solid var(--orange);
+      margin: 36px 0;
+      padding: 24px 28px;
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-style: italic;
+      color: var(--navy);
+      line-height: 1.5;
+    }
+
+    /* ── FOOTER TAG ── */
+    .built-with {
+      margin-top: 52px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.5px;
+      font-style: italic;
+    }
+    .built-with strong { color: var(--navy); font-style: normal; }
+
+    /* ── PAGE FOOTER ── */
+    footer {
+      background: #000;
+      color: var(--orange);
+      text-align: center;
+      padding: 28px 24px;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+    footer a { color: var(--orange); text-decoration: none; }
+    footer a:hover { color: #fff; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .article-wrap { animation: fadeUp 0.5s ease both; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-name" href="/index">Sasikala <span>J</span></a>
+      <div class="nav-links">
+        <a href="/index">Home</a>
+        <a href="/cv">CV</a>
+        <a href="/projects">Projects</a>
+        <a href="/blog" class="active">Blog</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO BANNER -->
+  <img class="hero-image" src="clearspec-blog-strip.png" alt="ClearSpec — Agentic Pipeline banner"/>
+
+  <!-- ARTICLE -->
+  <article class="article-wrap">
+
+    <div class="meta">
+      <span class="meta-tag">Agentic AI</span>
+      <span class="meta-date">April 2026</span>
+    </div>
+
+    <h1>From Jira Ticket to Test Code —<br>Building an Agentic Pipeline in Two Weeks</h1>
+
+    <p class="lead">AI has changed how we build, test, and ship software — and if you work in quality engineering, you've felt it. This is the story of two weeks, four certificates, and one system that ties it all together.</p>
+
+    <hr class="divider"/>
+
+    <h2>The Shift I Couldn't Ignore</h2>
+    <p>Over the past year I've been layering AI into my testing workflow piece by piece: Playwright MCP for browser automation, GitHub Copilot for test scaffolding, and agentic flows to orchestrate the repetitive parts of a test cycle. Each addition saved time. But I wanted to understand the <em>concepts</em> underneath them — so I went deep.</p>
+
+    <hr class="divider"/>
+
+    <h2>Two Weeks, Four Certificates, One System</h2>
+    <p>I carved out two weeks to properly learn the foundational concepts shaping modern AI engineering: <strong>agents</strong>, <strong>agentic workflows</strong>, <strong>RAG</strong>, <strong>MCP (Model Context Protocol)</strong>, and <strong>Skills</strong>. I worked through Claude's Skilljar courses and a stack of YouTube deep-dives, completing four certificates along the way.</p>
+    <p>The concepts clicked. I built small experiments — MCP servers, standalone agent bots, multi-agent subagent chains. But the real test was putting them together into something that actually <em>does</em> something useful.</p>
+
+    <hr class="divider"/>
+
+    <h2>The Project: Jira to Test Code, End to End</h2>
+    <p>I designed a sequential agentic pipeline that takes a <strong>Jira ticket ID</strong> as input and outputs <strong>production-ready test files</strong> — no manual handoffs, no copy-pasting, no context switching. The pipeline has four stages, each owned by a dedicated stateless agent.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Stage</th>
+            <th>What it does</th>
+            <th>Output</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>AC Extraction</strong></td>
+            <td>Connects to Jira via MCP, pulls acceptance criteria</td>
+            <td><code>requirements-{id}.md</code></td>
+          </tr>
+          <tr>
+            <td><strong>AC Refinement</strong></td>
+            <td>Probes for gaps — edge cases, error states, empty states</td>
+            <td><code>refined-requirements-{id}.md</code></td>
+          </tr>
+          <tr>
+            <td><strong>Test Planning</strong></td>
+            <td>Designs a test plan (unit ~70%, integration ~20%, E2E ~10%)</td>
+            <td><code>test-plan-{id}.md</code></td>
+          </tr>
+          <tr>
+            <td><strong>Test Implementation</strong></td>
+            <td>Writes and runs Playwright + Jest test files</td>
+            <td><code>test-cases-{id}.md</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Between every stage sits a <strong>Human-in-the-Loop gate</strong> — the pipeline pauses, surfaces the artefact, and waits for your explicit approval before advancing. You can edit the output before signing off. Nothing moves without you.</p>
+
+    <blockquote>Well-scoped agents with clear handoffs outperform one monolithic model trying to do everything at once.</blockquote>
+
+    <hr class="divider"/>
+
+    <h2>The Core AI Concepts at Work</h2>
+    <p>This wasn't just gluing tools together. Every design decision maps to a specific agentic concept.</p>
+
+    <div class="concepts">
+      <div class="concept">
+        <div class="concept-label"><span></span>Skills</div>
+        <div class="concept-text">Each stage is a markdown slash command that orchestrates the sequence and delegates reasoning to subagents.</div>
+      </div>
+      <div class="concept">
+        <div class="concept-label"><span></span>Stateless subagents</div>
+        <div class="concept-text">Every agent starts cold, does one job, writes one file. No shared context, no bleed between stages.</div>
+      </div>
+      <div class="concept">
+        <div class="concept-label"><span></span>Model tiering</div>
+        <div class="concept-text">Haiku handles Q&amp;A loops and validation; Sonnet runs only for synthesis. Same output quality, a fraction of the token cost.</div>
+      </div>
+      <div class="concept">
+        <div class="concept-label"><span></span>Chained Inversion</div>
+        <div class="concept-text">Stages 2 and 3 use a one-question-at-a-time Q&amp;A loop. The human answers each gap; the synthesiser reads the completed log at the end. Context stays small, quality stays high.</div>
+      </div>
+      <div class="concept">
+        <div class="concept-label"><span></span>Tool use via MCP</div>
+        <div class="concept-text">Stage 1 calls the Atlassian Rovo MCP server directly to fetch live Jira data. No copy-pasting.</div>
+      </div>
+      <div class="concept">
+        <div class="concept-label"><span></span>Agent memory</div>
+        <div class="concept-text">Q&amp;A answers persist to disk so incremental reruns skip already-resolved questions.</div>
+      </div>
+      <div class="concept">
+        <div class="concept-label"><span></span>Hooks as state guards</div>
+        <div class="concept-text"><code>SubagentStart</code> and <code>SubagentStop</code> hooks enforce <code>context.json</code> status before an agent can run and after it writes output, making invalid pipeline states impossible.</div>
+      </div>
+    </div>
+
+    <img src="Clearspec-flow-2026-04-22-00.31.15.png" style="width:100%;max-width:100%;height:auto;display:block;border-radius:10px;" alt="Diagram showing the architecture of the agentic pipeline, with each stage as a separate agent and the flow of data between them"/>
+
+    <hr class="divider"/>
+
+    <h2>What This System Achieves</h2>
+    <p>You trigger each stage individually and approve every handoff. But what the pipeline actually solves is a problem every QA engineer knows well: the gap between what a ticket says and what actually needs to be tested.</p>
+
+<p>Most acceptance criteria are written from a developer's perspective — happy path, basic flows, nothing about empty states, error messages, boundary conditions, or accessibility. By the time a tester picks up the ticket, those gaps are invisible until something breaks in production. This pipeline makes them visible early. The AI probes the spec one question at a time, you answer, and the result is a refined, test-ready specification before a single line of test code is written.</p>
+ 
+<p>That refined spec then drives a structured test plan — coverage intentionally spread across unit, integration, and end-to-end layers — and from there, the test generator scaffolds real Playwright and Jest files and runs them. You're not starting from a blank file; you're reviewing working code that came from a clear spec that came from a clarified ticket.</p>
+ 
+<p>The pipeline is reproducible, resumable, and cheap — proof that well-scoped agents with clear handoffs outperform one monolithic model trying to do everything at once.</p>
+
+    <hr class="divider"/>
+
+    <h2>What's Next</h2>
+    <p>This was a demo, but the patterns are real and the problem space is large. Vague acceptance criteria, missing edge cases, slow test cycles, and late-stage defects are problems every QA team deals with daily. Agentic pipelines like this one are a practical way to push that quality work earlier in the process — at the spec stage, not the bug-report stage.</p>
+
+<p>I want to take these further. A few areas I'm interested in exploring next: using agents to detect when existing tests drift from the acceptance criteria they were written against, flagging untested code paths from production logs, and building smarter triage tools that categorise failing tests automatically after a deployment.</p>
+
+<p>The broader goal is the same throughout — use AI to do the structured, repeatable work, keep the engineer in control of the judgement calls, and ship with more confidence.</p>
+
+    <div class="built-with">
+      <strong>Built with</strong> &nbsp;Claude Code &nbsp;·&nbsp; Anthropic Agent SDK &nbsp;·&nbsp; Atlassian Rovo MCP &nbsp;·&nbsp; Playwright &nbsp;·&nbsp; Jest
+    </div>
+
+  </article>
+
+  <footer>
+    <p><a href="https://www.sasikalaj.co.uk">sasikalaj.co.uk</a> &nbsp;·&nbsp; © 2026 Sasikala J</p>
+  </footer>
+
+</body>
+</html>
