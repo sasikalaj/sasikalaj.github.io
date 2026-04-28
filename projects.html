@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Test automation projects by Sasikala J — Playwright, Selenium, BDD, CI/CD and more."/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Test automation projects by Sasikala J — Playwright, Selenium, BDD, CI/CD and more." />
   <title>Projects — Sasikala J</title>
 
   <!--
@@ -18,25 +20,33 @@
     · Print stylesheet included
   -->
 
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&display=swap" rel="stylesheet"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&display=swap"
+    rel="stylesheet" />
 
   <style>
     /* ── TOKENS ── */
     :root {
-      --navy:   #1a1f3a;
+      --navy: #1a1f3a;
       --orange: #D4622A;
-      --muted:  #6b7280;
+      --muted: #6b7280;
       --border: #e5e7eb;
-      --bg:     #ffffff;
-      --bg2:    #f9f8f6;
-      --bg3:    #fbfbfb;
-      --text:   #374151;
-      --boxes:  #2c2f3d;
+      --bg: #ffffff;
+      --bg2: #f9f8f6;
+      --bg3: #fbfbfb;
+      --text: #374151;
+      --boxes: #2c2f3d;
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
       font-family: 'Source Serif 4', Georgia, serif;
@@ -56,6 +66,7 @@
       background: #fff;
       z-index: 100;
     }
+
     .nav-inner {
       max-width: 1100px;
       margin: 0 auto;
@@ -65,6 +76,7 @@
       justify-content: space-between;
       height: 100%;
     }
+
     .nav-name {
       font-family: 'Playfair Display', serif;
       font-size: 18px;
@@ -73,8 +85,16 @@
       text-decoration: none;
       letter-spacing: 0.3px;
     }
-    .nav-name span { color: var(--orange); }
-    .nav-links { display: flex; gap: 32px; }
+
+    .nav-name span {
+      color: var(--orange);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+    }
+
     .nav-links a {
       font-family: 'Source Serif 4', serif;
       font-size: 11px;
@@ -85,8 +105,14 @@
       color: var(--muted);
       transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--navy); }
-    .nav-links a.active { color: var(--navy); }
+
+    .nav-links a:hover {
+      color: var(--navy);
+    }
+
+    .nav-links a.active {
+      color: var(--navy);
+    }
 
     /* ── PAGE WRAPPER ── */
     .page-wrap {
@@ -102,6 +128,7 @@
       gap: 14px;
       margin-bottom: 32px;
     }
+
     .meta-tag {
       font-size: 10px;
       letter-spacing: 2px;
@@ -111,6 +138,7 @@
       padding: 4px 10px;
       border-radius: 2px;
     }
+
     .meta-date {
       font-size: 13px;
       color: var(--muted);
@@ -127,6 +155,7 @@
       margin-bottom: 24px;
       letter-spacing: -0.5px;
     }
+
     h2 {
       font-family: 'Playfair Display', serif;
       font-size: 22px;
@@ -175,6 +204,7 @@
       gap: 20px;
       margin-bottom: 20px;
     }
+
     .project-num {
       width: 40px;
       height: 40px;
@@ -185,6 +215,7 @@
       justify-content: center;
       flex-shrink: 0;
     }
+
     .project-num svg {
       width: 22px;
       height: 22px;
@@ -198,6 +229,7 @@
       gap: 6px;
       margin-bottom: 16px;
     }
+
     .stack-tag {
       font-family: 'Source Serif 4', serif;
       font-size: 10px;
@@ -227,6 +259,7 @@
       gap: 0;
       border-top: 1px solid var(--border);
     }
+
     .feature-list li {
       font-size: 15px;
       color: var(--text);
@@ -236,6 +269,7 @@
       padding-left: 18px;
       position: relative;
     }
+
     .feature-list li::before {
       content: '';
       position: absolute;
@@ -272,10 +306,12 @@
       color: var(--navy);
       background: var(transparent);
     }
+
     .proj-link:hover {
       background: var(--navy);
       color: #fff;
     }
+
     .proj-link svg {
       width: 13px;
       height: 13px;
@@ -288,6 +324,7 @@
       border-color: var(--border);
       color: var(--muted);
     }
+
     .proj-link-ghost:hover {
       border-color: var(--navy);
       color: var(--navy);
@@ -299,6 +336,7 @@
       border-color: var(--orange);
       color: var(--orange);
     }
+
     .proj-link-yt:hover {
       background: var(--orange);
       color: #fff;
@@ -316,6 +354,7 @@
       margin-top: 56px;
       flex-wrap: wrap;
     }
+
     .cta-strip p {
       font-family: 'Playfair Display', serif;
       font-size: 20px;
@@ -323,6 +362,7 @@
       color: #fff;
       line-height: 1.4;
     }
+
     .btn-light {
       font-family: 'Source Serif 4', serif;
       font-size: 11px;
@@ -337,7 +377,10 @@
       display: inline-block;
       transition: background 0.2s;
     }
-    .btn-light:hover { background: var(--bg2); }
+
+    .btn-light:hover {
+      background: var(--bg2);
+    }
 
     /* ── CONTACT BAR ── */
     .contact-bar {
@@ -348,18 +391,29 @@
       border-top: 1px solid var(--border);
       margin-top: 48px;
     }
+
     .contact-item {
       display: flex;
       align-items: center;
       gap: 10px;
     }
-    .contact-item svg { width: 16px; height: 16px; fill: var(--orange); flex-shrink: 0; }
+
+    .contact-item svg {
+      width: 16px;
+      height: 16px;
+      fill: var(--orange);
+      flex-shrink: 0;
+    }
+
     .contact-item a {
       font-size: 14px;
       color: var(--orange);
       text-decoration: none;
     }
-    .contact-item a:hover { color: var(--navy); }
+
+    .contact-item a:hover {
+      color: var(--navy);
+    }
 
     /* ── FOOTER ── */
     footer {
@@ -367,37 +421,98 @@
       padding: 28px 24px;
       text-align: center;
     }
-    footer p { font-size: 13px; color: var(--orange); }
-    footer a { color: var(--orange); text-decoration: none; }
-    footer a:hover { color: #fff; }
+
+    footer p {
+      font-size: 13px;
+      color: var(--orange);
+    }
+
+    footer a {
+      color: var(--orange);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: #fff;
+    }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 640px) {
-      .nav-inner { padding: 0 16px; }
-      .nav-links { gap: 16px; }
-      .nav-links a { font-size: 10px; letter-spacing: 1.5px; }
-      .page-wrap { padding: 40px 16px 72px; }
-      .project-header { gap: 12px; }
-      .cta-strip { padding: 28px 20px; }
-      .cta-strip p { font-size: 17px; }
-      .link-row { flex-direction: column; }
-      .proj-link { justify-content: center; }
+      .nav-inner {
+        padding: 0 16px;
+      }
+
+      .nav-links {
+        gap: 16px;
+      }
+
+      .nav-links a {
+        font-size: 10px;
+        letter-spacing: 1.5px;
+      }
+
+      .page-wrap {
+        and padding: 40px 16px 72px;
+      }
+
+      .project-header {
+        gap: 12px;
+      }
+
+      .cta-strip {
+        padding: 28px 20px;
+      }
+
+      .cta-strip p {
+        font-size: 17px;
+      }
+
+      .link-row {
+        flex-direction: column;
+      }
+
+      .proj-link {
+        justify-content: center;
+      }
     }
 
     /* ── PRINT ── */
     @media print {
-      nav, .cta-strip, .contact-bar, footer { display: none; }
-      body { font-size: 12px; }
-      .page-wrap { padding: 0; max-width: 100%; }
-      .proj-link { border: 0.5px solid #ccc; font-size: 10px; padding: 6px 12px; }
-      .divider { margin: 24px 0; }
+
+      nav,
+      .cta-strip,
+      .contact-bar,
+      footer {
+        display: none;
+      }
+
+      body {
+        font-size: 12px;
+      }
+
+      .page-wrap {
+        padding: 0;
+        max-width: 100%;
+      }
+
+      .proj-link {
+        border: 0.5px solid #ccc;
+        font-size: 10px;
+        padding: 6px 12px;
+      }
+
+      .divider {
+        margin: 24px 0;
+      }
     }
+
     .screenshot-heading {
       font-size: 14px;
       font-weight: 700;
       color: var(--navy);
       margin: 28px 0 10px;
     }
+
     .project-screenshot {
       width: 100%;
       border: 1px solid var(--border);
@@ -406,6 +521,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <!-- NAV -->
@@ -432,13 +548,17 @@
 
     <h1>Projects</h1>
 
-    <p class="lead">A selection of test automation scripts for web applications and APIs — covering Playwright, Selenium, BDD, CI/CD, and performance testing.</p>
+    <p class="lead">A selection of test automation scripts for web applications and APIs — covering Playwright,
+      Selenium, BDD, CI/CD and performance testing.</p>
 
     <!-- ── PROJECT 1 ── -->
     <article class="project" id="playwright-suite">
       <div class="project-header">
         <span class="project-num" aria-label="Browser automation">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8h16v10zm-10-1h2v-4h2l-3-3-3 3h2z"/></svg>
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8h16v10zm-10-1h2v-4h2l-3-3-3 3h2z" />
+          </svg>
         </span>
         <h2>Playwright Automation Test Suites with Test Metrics</h2>
       </div>
@@ -451,13 +571,21 @@
         <span class="stack-tag">ARIA selectors</span>
       </div>
 
-      <p>An end-to-end test suite built with Playwright and TypeScript targeting a realistic e-commerce demo. The focus was on designing a system that is fast, maintainable, and trustworthy in CI — not just writing tests.</p>
-      <p>Page objects use a factory function pattern instead of classes, keeping locators lazy and composable. Selectors prioritise ARIA roles and <code>data-test</code> attributes, making tests resilient to visual redesigns. Every test is independently runnable, tagged for suite-level filtering, and wired into a GitHub Actions pipeline with multi-format reporting and Grafana metrics out of the box.</p>
+      <p>An end-to-end test suite built with Playwright and TypeScript targeting a realistic e-commerce demo. The focus
+        was on designing a system that is fast, maintainable and trustworthy in CI — not just writing tests.</p>
+      <p>Page objects use a factory function pattern instead of classes, keeping locators lazy and composable. Selectors
+        prioritise ARIA roles and <code>data-test</code> attributes, making tests resilient to visual redesigns. Every
+        test is independently runnable, tagged for suite-level filtering and wired into a GitHub Actions pipeline with
+        multi-format reporting and Grafana metrics out of the box.</p>
 
       <div class="link-row">
-        <a class="proj-link" href="https://github.com/sasikalaj/PLAYWRIGHT-WEB-AUTOMATION-TESTS" target="_blank" rel="noopener noreferrer">
+        <a class="proj-link" href="https://github.com/sasikalaj/PLAYWRIGHT-WEB-AUTOMATION-TESTS" target="_blank"
+          rel="noopener noreferrer">
           <!-- GitHub icon -->
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path
+              d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+          </svg>
           View on GitHub
         </a>
       </div>
@@ -470,7 +598,10 @@
     <article class="project" id="ecommerce-product-suite">
       <div class="project-header">
         <span class="project-num" aria-label="Test data">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+          </svg>
         </span>
         <h2>Automation of e-Commerce Product Suite</h2>
       </div>
@@ -485,20 +616,27 @@
         <span class="stack-tag">ROBOT APIs</span>
       </div>
 
-      <p>A hybrid framework combining Function Driven, Data Driven, Page Object Model, and Test Object Model patterns — designed to automate admin-side product management on an e-commerce platform.</p>
+      <p>A hybrid framework combining Function Driven, Data Driven, Page Object Model and Test Object Model patterns —
+        designed to automate admin-side product management on an e-commerce platform.</p>
 
       <ul class="feature-list">
         <li>Bulk product insertion via data-driven framework, with test data fed from Excel using Apache POI</li>
-        <li>Single product creation, edit, and deletion flows with full attribute coverage including SEO fields</li>
-        <li>Selenium APIs covering <code>Select</code>, <code>Actions</code>, <code>WebDriverWait</code>, and <code>ExpectedConditions</code></li>
+        <li>Single product creation, edit and deletion flows with full attribute coverage including SEO fields</li>
+        <li>Selenium APIs covering <code>Select</code>, <code>Actions</code>, <code>WebDriverWait</code> and
+          <code>ExpectedConditions</code>
+        </li>
         <li><code>java.awt.Robot</code> APIs for native Windows control interaction</li>
         <li>TestNG <code>suite.xml</code> used to preserve test execution order across the suite</li>
       </ul>
 
       <div class="link-row">
-        <a class="proj-link" href="https://gitlab.com/sasikalaj45/nopcommerceadmin-master" target="_blank" rel="noopener noreferrer">
+        <a class="proj-link" href="https://gitlab.com/sasikalaj45/nopcommerceadmin-master" target="_blank"
+          rel="noopener noreferrer">
           <!-- GitLab icon -->
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51 1.22 3.78a.84.84 0 0 1-.3.94z"/></svg>
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path
+              d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51 1.22 3.78a.84.84 0 0 1-.3.94z" />
+          </svg>
           View on GitLab
         </a>
       </div>
@@ -508,7 +646,10 @@
     <article class="project" id="ecommerce-bdd">
       <div class="project-header">
         <span class="project-num" aria-label="BDD scenarios">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z" />
+          </svg>
         </span>
         <h2>Automation of e-Commerce Website — BDD</h2>
       </div>
@@ -524,21 +665,28 @@
         <span class="stack-tag">POM / TOM</span>
       </div>
 
-      <p>BDD test automation for a full e-commerce website — acceptance criteria written in Gherkin and driven through Cucumber-JVM, with Page Object and Test Object Model patterns underneath.</p>
+      <p>BDD test automation for a full e-commerce website — acceptance criteria written in Gherkin and driven through
+        Cucumber-JVM, with Page Object and Test Object Model patterns underneath.</p>
 
       <ul class="feature-list">
         <li>Homepage features — website localisation settings</li>
         <li>New customer registration and personal details management</li>
         <li>Product search and attribute comparison flows</li>
-        <li>Wishlist management — add, delete, and modify item quantities</li>
+        <li>Wishlist management — add, delete and modify item quantities</li>
         <li>Purchase flow — add to cart and checkout</li>
         <li>Recommended Products UI — number of recommendations and scroll navigation</li>
-        <li>Selenium APIs: <code>Select</code>, <code>Actions</code>, <code>WebDriverWait</code>, <code>ExpectedConditions</code></li>
+        <li>Selenium APIs: <code>Select</code>, <code>Actions</code>, <code>WebDriverWait</code>,
+          <code>ExpectedConditions</code>
+        </li>
       </ul>
 
       <div class="link-row">
-        <a class="proj-link" href="https://gitlab.com/sasikalaj45/smartstoredemobdd" target="_blank" rel="noopener noreferrer">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51 1.22 3.78a.84.84 0 0 1-.3.94z"/></svg>
+        <a class="proj-link" href="https://gitlab.com/sasikalaj45/smartstoredemobdd" target="_blank"
+          rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path
+              d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51 1.22 3.78a.84.84 0 0 1-.3.94z" />
+          </svg>
           View on GitLab
         </a>
       </div>
@@ -548,7 +696,10 @@
     <article class="project" id="jenkins-ci">
       <div class="project-header">
         <span class="project-num" aria-label="CI pipeline">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 9.74C4.46 10.97 4 12.43 4 14c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/></svg>
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 9.74C4.46 10.97 4 12.43 4 14c0 4.42 3.58 8 8 8v3l4-4-4-4v3z" />
+          </svg>
         </span>
         <h2>Continuous Integration using Jenkins</h2>
       </div>
@@ -563,7 +714,8 @@
         <span class="stack-tag">GitHub integration</span>
       </div>
 
-      <p>Selenium tests running inside a Jenkins CI pipeline — demonstrating a range of WebDriver and Selenium APIs in a fully automated, continuously triggered setup.</p>
+      <p>Selenium tests running inside a Jenkins CI pipeline — demonstrating a range of WebDriver and Selenium APIs in a
+        fully automated, continuously triggered setup.</p>
 
       <ul class="feature-list">
         <li>Drag-and-drop and element scrolling using the <code>Actions</code> API</li>
@@ -575,8 +727,12 @@
       </ul>
 
       <div class="link-row">
-        <a class="proj-link" href="https://gitlab.com/sasikalaj45/seleniumapitests" target="_blank" rel="noopener noreferrer">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51 1.22 3.78a.84.84 0 0 1-.3.94z"/></svg>
+        <a class="proj-link" href="https://gitlab.com/sasikalaj45/seleniumapitests" target="_blank"
+          rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path
+              d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51 1.22 3.78a.84.84 0 0 1-.3.94z" />
+          </svg>
           View on GitLab
         </a>
       </div>
@@ -587,16 +743,26 @@
       <p>Just a sample of my work. To see more or discuss possible work →</p>
       <a href="mailto:sasikalaj45@gmail.com" class="btn-light">Let's Talk</a>
       <div class="contact-item">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path
+            d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+        </svg>
         <a href="tel:+4407923132484">+44 (0) 07923 132484</a>
       </div>
       <div class="contact-item">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path
+            d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+        </svg>
         <a href="mailto:sasikalaj45@gmail.com">sasikalaj45@gmail.com</a>
       </div>
       <div class="contact-item">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
-        <a href="http://uk.linkedin.com/pub/sasikala-j/38/800/bb1" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path
+            d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+        </svg>
+        <a href="http://uk.linkedin.com/pub/sasikala-j/38/800/bb1" target="_blank"
+          rel="noopener noreferrer">LinkedIn</a>
       </div>
     </div>
   </main>
@@ -607,4 +773,5 @@
   </footer>
 
 </body>
+
 </html>
