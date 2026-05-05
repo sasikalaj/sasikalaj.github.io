@@ -414,6 +414,30 @@
       animation: fadeUp 0.5s ease both;
     }
 
+    /* ── ACHIEVES LISTS ── */
+    .achieves-intro { margin-bottom: 28px; }
+    .achieves-group { margin-bottom: 32px; }
+    .achieves-group h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+    .achieves-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+    }
+    .achieves-list li {
+      font-size: 16px;
+      color: #374151;
+      line-height: 1.6;
+    }
+
     @media (max-width: 768px) {
       .nav-inner { padding: 0 20px; }
       .nav-links { gap: 20px; }
@@ -585,15 +609,27 @@
     <hr class="divider" />
 
     <h2>What This System Achieves</h2>
-    <p>You trigger each stage individually and approve every handoff. But what the pipeline actually solves is a problem
-      every QA engineer knows well: the gap between what a ticket says and what actually needs to be tested.</p>
+    <p class="achieves-intro">You trigger each stage individually and approve every handoff. Here's what the pipeline actually solves:</p>
 
-    <p>Most acceptance criteria stop at the happy path. Empty states, error messages, boundary conditions, accessibility — they're rarely written down, and by the time a tester picks up the ticket, those gaps are invisible until something breaks in production. This pipeline makes them visible early. The AI probes the spec one question at a time, you answer, and the result is a refined, test-ready specification before a single line of test code is written."</p>
+    <div class="achieves-group">
+      <h3>The gap between what a ticket says and what needs to be tested:</h3>
+      <ul class="achieves-list">
+        <li> - Acceptance criteria stop at the happy path</li>
+        <li> - Empty states, error messages, boundary conditions — rarely written down</li>
+        <li> - The AI probes the spec one question at a time, you answer</li>
+        <li> - Result: a refined, test-ready specification before a single line of code is written</li>
+      </ul>
+    </div>
 
-    <p>That refined spec then drives a structured test plan — coverage intentionally spread across unit, integration,
-      and end-to-end layers — and from there, the test generator scaffolds real Playwright and Jest files and runs them.
-      You're not starting from a blank file; you're reviewing working code that came from a clear spec that came from a
-      clarified ticket.</p>
+    <div class="achieves-group">
+      <h3>From spec to working tests:</h3>
+      <ul class="achieves-list">
+        <li>🗂️ The refined spec drives a structured test plan</li>
+        <li>📊 Coverage spread intentionally across unit, integration and E2E layers</li>
+        <li>⚡ Test generator scaffolds real Playwright and Jest files and runs them</li>
+        <li>🚀 You're not starting from a blank file — you're reviewing working code</li>
+      </ul>
+    </div>
 
     <p>The pipeline is reproducible, resumable and cheap — proof that well-scoped agents with clear handoffs outperform
       one monolithic model trying to do everything at once.</p>
