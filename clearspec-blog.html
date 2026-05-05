@@ -148,9 +148,8 @@
       user-select: none;
       -webkit-user-drag: none;
     }
-    /* re-enable pointer events on the wrapping anchor only */
-    a .no-download { pointer-events: none; }
-    a:has(.no-download) { pointer-events: all; }
+    /* inside a clickable anchor, let clicks reach the anchor */
+    a .no-download { pointer-events: auto; }
 
     /* ── FLOW IMAGE ── */
     .flow-image-wrap {
@@ -454,7 +453,7 @@
   </div>
   <div id="flow-full" class="lightbox">
     <a class="lightbox-close" href="#">&times;</a>
-    <img src="Clearspec-flow-2026-04-22-00.31.15.png" class="no-download" draggable="false" alt="Diagram showing the architecture of the agentic pipeline (full size)" />
+    <img src="Clearspec-flow-2026-04-30-22.51.46.png" class="no-download" draggable="false" alt="Diagram showing the architecture of the agentic pipeline (full size)" />
   </div>
 
   <!-- NAV -->
@@ -614,10 +613,10 @@
     <div class="achieves-group">
       <h3>The gap between what a ticket says and what needs to be tested:</h3>
       <ul class="achieves-list">
-        <li> - Acceptance criteria stop at the happy path</li>
-        <li> - Empty states, error messages, boundary conditions — rarely written down</li>
-        <li> - The AI probes the spec one question at a time, you answer</li>
-        <li> - Result: a refined, test-ready specification before a single line of code is written</li>
+        <li>✅ Acceptance criteria stop at the happy path</li>
+        <li>❌ Empty states, error messages, boundary conditions — rarely written down</li>
+        <li>🔍 The AI probes the spec one question at a time, you answer</li>
+        <li>📄 Result: a refined, test-ready specification before a single line of code is written</li>
       </ul>
     </div>
 
