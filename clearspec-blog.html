@@ -588,11 +588,7 @@
     <p>You trigger each stage individually and approve every handoff. But what the pipeline actually solves is a problem
       every QA engineer knows well: the gap between what a ticket says and what actually needs to be tested.</p>
 
-    <p>Most acceptance criteria are written from a developer's perspective — happy path, basic flows, nothing about
-      empty states, error messages, boundary conditions, or accessibility. By the time a tester picks up the ticket,
-      those gaps are invisible until something breaks in production. This pipeline makes them visible early. The AI
-      probes the spec one question at a time, you answer and the result is a refined, test-ready specification before a
-      single line of test code is written.</p>
+    <p>Most acceptance criteria stop at the happy path. Empty states, error messages, boundary conditions, accessibility — they're rarely written down, and by the time a tester picks up the ticket, those gaps are invisible until something breaks in production. This pipeline makes them visible early. The AI probes the spec one question at a time, you answer, and the result is a refined, test-ready specification before a single line of test code is written."</p>
 
     <p>That refined spec then drives a structured test plan — coverage intentionally spread across unit, integration,
       and end-to-end layers — and from there, the test generator scaffolds real Playwright and Jest files and runs them.
